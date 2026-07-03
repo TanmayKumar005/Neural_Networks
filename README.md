@@ -23,7 +23,7 @@ The repo will grow over time and cover a wide range of neural network concepts, 
 
 | # | Model | Type | Dataset | Description |
 |---|---|---|---|---|
-| 01 | [Basic Neural Network](./Basic_neural_network.ipynb) | Binary Classification | Custom (16 rows) | Predicts whether a plant needs water based on soil moisture, temperature, and sunlight hours |
+| 01 | [Basic Neural Network](https://github.com/TanmayKumar005/Neural_Networks/blob/main/Plant_watering_prediction/Basic_neural_network.ipynb) | Binary Classification | Custom (16 rows) | Predicts whether a plant needs water based on soil moisture, temperature, and sunlight hours |
 
 > More models will be added here as the journey continues.
 
