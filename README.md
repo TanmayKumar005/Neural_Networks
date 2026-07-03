@@ -1,105 +1,70 @@
-# 🌱 Plant Watering Prediction — Basic Neural Network
+# 🧠 Neural Networks — From Zero to Deep
 
-A beginner-level deep learning project that uses a feedforward neural network built with TensorFlow/Keras to predict whether a plant needs water, based on environmental sensor readings.
+This is my personal neural network learning repository. I'll be uploading models here as I progress through my deep learning journey — starting from the most basic networks and gradually moving towards more complex, real-world architectures.
 
-## 🔍 Overview
+Think of this repo as a living notebook of everything I build, experiment with, and learn along the way. Every model here represents a step forward.
 
-Given 3 input features — soil moisture, temperature, and sunlight hours — the model learns to classify whether a plant needs watering (`1`) or not (`0`). The dataset is small and hand-crafted (16 records), making this a great introductory notebook for understanding how neural networks are built, trained, and evaluated from scratch.
+---
 
-## 📁 File
+## 🗺️ What to Expect
 
-```
-Basic_neural_network.ipynb   ← Google Colab notebook
-```
+The repo will grow over time and cover a wide range of neural network concepts, roughly in this order:
 
-## 🧠 Model Architecture
-
-```
-Input (3 features) → Dense(8, ReLU) → Dense(1, Sigmoid) → Output
-```
-
-| Layer | Units | Activation | Purpose |
-|---|---|---|---|
-| Input | 3 | — | soil_moisture, temperature_c, sunlight_hours |
-| Hidden | 8 | ReLU | Feature learning |
-| Output | 1 | Sigmoid | Binary classification (needs water: yes/no) |
-
-## 📊 Dataset
-
-Hand-crafted dataset with 16 samples representing different environmental conditions:
-
-| Feature | Range | Description |
-|---|---|---|
-| `soil_moisture` | 0.05 – 0.80 | Fraction of soil water content |
-| `temperature_c` | 19°C – 35°C | Ambient temperature in Celsius |
-| `sunlight_hours` | 1 – 12 hrs | Daily sunlight exposure |
-| `needs_water` | 0 or 1 | Target label (1 = needs water) |
-
-Train/test split: **75% train / 25% test** with `stratify=y` to preserve class balance.
-
-## ⚙️ Training Details
-
-| Parameter | Value |
+| Stage | Topics |
 |---|---|
-| Optimizer | SGD (Stochastic Gradient Descent) |
-| Loss Function | Binary Crossentropy |
-| Metric | Accuracy |
-| Epochs | 100 |
-| Batch Size | 4 |
+| 🟢 Basics | Perceptrons, feedforward networks, activation functions, binary classification |
+| 🟡 Intermediate | Multi-class classification, deeper networks, regularization, dropout, batch normalization |
+| 🟠 Advanced | CNNs (image recognition), RNNs, LSTMs (sequence data), transfer learning |
+| 🔴 Deep | Transformers, attention mechanisms, autoencoders, GANs |
 
-## 📈 Results
+---
 
-| Metric | Train | Validation |
-|---|---|---|
-| Accuracy | 91.67% | **100%** |
-| Loss (final) | ~0.368 | ~0.382 |
+## 📂 Models So Far
 
-The model achieved 100% validation accuracy from epoch 1 and maintained it through all 100 epochs, with training loss steadily decreasing.
+| # | Model | Type | Dataset | Description |
+|---|---|---|---|---|
+| 01 | [Basic Neural Network](https://github.com/TanmayKumar005/Neural_Networks/blob/main/Plant_watering_prediction/Basic_neural_network.ipynb) | Binary Classification | Custom (16 rows) | Predicts whether a plant needs water based on soil moisture, temperature, and sunlight hours |
 
-## 🔄 Notebook Workflow
+> More models will be added here as the journey continues.
 
-1. **Import libraries** — `pandas`, `numpy`, `tensorflow`, `keras`, `sklearn`
-2. **Create dataset** — 16-sample DataFrame with 3 features and 1 binary label
-3. **Feature/target split** — `X = [soil_moisture, temperature_c, sunlight_hours]`, `y = needs_water`
-4. **Manual min-max normalization** — scales all features to [0, 1] range using `(X - X_min) / (X_max - X_min + 1e-8)` (epsilon added to avoid division by zero)
-5. **Train/test split** — `train_test_split` with `test_size=0.25`, `stratify=y`, `random_state=42`
-6. **Build model** — Keras Sequential with Input → Dense(8, ReLU) → Dense(1, Sigmoid)
-7. **Compile** — SGD optimizer, binary crossentropy loss
-8. **Train** — 100 epochs, batch size 4, with validation data monitored per epoch
-
-## 🚀 Getting Started
-
-### Run on Google Colab (recommended)
-Open the notebook in [Google Colab](https://colab.research.google.com/) and run all cells — no setup needed.
-
-### Run locally
-```bash
-pip install tensorflow pandas numpy scikit-learn
-jupyter notebook Basic_neural_network.ipynb
-```
+---
 
 ## 🛠️ Tech Stack
 
-- Python 3
-- TensorFlow / Keras
-- NumPy
-- Pandas
-- scikit-learn
+All notebooks are built using:
 
-## 📌 Notes
+- **Python 3**
+- **TensorFlow / Keras** — model building and training
+- **NumPy / Pandas** — data manipulation
+- **scikit-learn** — preprocessing and train/test splits
+- **Google Colab** — primary environment for running notebooks
 
-- The dataset is intentionally tiny (16 samples) — this is a learning project focused on understanding neural network structure, not production-level accuracy.
-- Manual min-max scaling is used instead of `sklearn.preprocessing.MinMaxScaler` to demonstrate the underlying math.
-- The high validation accuracy (100%) is expected given the small, clean dataset — this would not generalize without more real-world data.
+---
 
-## ⚠️ Disclaimer
+## ⚠️ A Note on Early Models
 
-Heads up — this neural network was trained on just **16 rows of data**. That's roughly the size of a school attendance register. While the model hits 100% validation accuracy, don't let that number fool you — it's essentially memorizing a handful of examples, not actually "learning" in any meaningful generalizable sense. If you fed it real-world sensor data from an actual garden, it would very likely fall apart.
+The first few models in this repo are trained on very small, hand-crafted datasets — sometimes as few as 15–20 rows. They're not meant to be production-ready or state-of-the-art. The goal at this stage is purely to understand how each piece of a neural network works — the architecture, the training loop, the loss functions — before scaling up to real datasets.
 
-Think of this project as a working demo of *how* a neural network is wired together — the layers, the training loop, the loss going down epoch by epoch — not as something you'd trust to keep your plants alive. For anything beyond learning purposes, you'd need hundreds or thousands of real labeled samples, proper cross-validation, and a lot more variety in the data.
+As the repo grows, so will the data quality, model complexity, and real-world applicability.
 
-**TL;DR:** Great for understanding the basics. Not suitable for real-world use as-is.
+---
 
-## 📄 License
+## 🚀 How to Run
 
-Open source — for educational use.
+Each notebook is self-contained and can be run directly on **Google Colab** with zero setup. Just click the notebook, open it in Colab, and run all cells.
+
+To run locally:
+```bash
+pip install tensorflow pandas numpy scikit-learn jupyter
+jupyter notebook
+```
+
+---
+
+## 👤 About
+
+I'm Tanmay, a CS undergrad learning deep learning from the ground up. This repo is part of my hands-on learning process — building things, breaking things, and figuring out how it all works.
+
+Feel free to explore, suggest improvements, or follow along as more models get added.
+
+📬 tanmay22605@gmail.com | [LinkedIn](https://linkedin.com/in/tanmay-kumar-343072217) | [GitHub](https://github.com/TanmayKumar005)
